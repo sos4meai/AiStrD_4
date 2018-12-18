@@ -1,6 +1,5 @@
-#include "Sortings.h"
+#include "Sorts.h"
 #include <iostream>
-#include "Heap.h"
 using namespace std;
 
 int BinarySearch(int * Array, size_t array_size, int to_find)
@@ -86,7 +85,6 @@ void siftDown(int* numbers, int root, int bottom)
 	}
 }
 
-// Функция сортировки на куче
 void heapSort(int *numbers, size_t array_size)
 {
 	for (int i = (array_size / 2) - 1; i >= 0; i--)
@@ -150,7 +148,6 @@ void CountingSort(char* Array, size_t array_size)
 
 bool correct_char_array(char * Array, size_t array_size)
 {
-	//символы: ! ... от 0 до 9 ... верхний регистр ... нижний регист ... ~
 	for (size_t i = 1; i < array_size; i++)
 		if (Array[i] < Array[i - 1])
 			return false;

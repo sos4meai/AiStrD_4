@@ -62,7 +62,7 @@ void BubbleSort(int * Array, size_t array_size)
 }
 
 
-void siftDown(int* numbers, int root, int bottom)
+void siftDown(int* Array, int root, int bottom)
 {
 	int maxChild;
 	bool done = false;
@@ -70,21 +70,22 @@ void siftDown(int* numbers, int root, int bottom)
 	{
 		if (root * 2 == bottom)
 			maxChild = root * 2;
-		else if (numbers[root * 2] > numbers[root * 2 + 1])
+		else if (Array[root * 2] > Array[root * 2 + 1])
 			maxChild = root * 2;
 		else
 			maxChild = root * 2 + 1;
-		if (numbers[root] < numbers[maxChild])
+		if (Array[root] < Array[maxChild])
 		{
-			int temp = numbers[root];
-			numbers[root] = numbers[maxChild];
-			numbers[maxChild] = temp;
+			int temp = Array[root];
+			Array[root] = Array[maxChild];
+			Array[maxChild] = temp;
 			root = maxChild;
 		}
 		else done = true;
 	}
 }
 
+// Функция сортировки на куче
 void heapSort(int *numbers, size_t array_size)
 {
 	for (int i = (array_size / 2) - 1; i >= 0; i--)
@@ -148,6 +149,8 @@ void CountingSort(char* Array, size_t array_size)
 
 bool correct_char_array(char * Array, size_t array_size)
 {
+	//символы: ! ... от 0 до 9 ... верхний регистр ... нижний регист ... ~
+
 	for (size_t i = 1; i < array_size; i++)
 		if (Array[i] < Array[i - 1])
 			return false;

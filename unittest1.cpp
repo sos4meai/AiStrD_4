@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "CppUnitTest.h"
-#include "../AiStrD3Lab4/Sortings.h"
+#include "../AiStrD3Lab4/Sorts.h"
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
@@ -12,11 +12,11 @@ namespace TestsLab4
 		
 		TEST_METHOD(correct_is_correct)
 		{
-			// TODO: Разместите здесь код своего теста
 			int* arr = new int[5];
 			for (int i = 0; i < 5; i++)
 				arr[i] = i;
 			Assert::IsTrue(correct(arr, 5));
+			delete[] arr;
 		}
 		//bogo
 		TEST_METHOD(bogosort_3elem)
@@ -96,7 +96,7 @@ namespace TestsLab4
 			delete[] arr;
 		}
 		//quick
-		/*
+		
 		TEST_METHOD(quicksort_7elem)
 		{
 			int* arr = new int[7];
@@ -107,7 +107,7 @@ namespace TestsLab4
 			arr[4] = 0;
 			arr[5] = 1;
 			arr[6] = -2;
-			QuickSort(arr, 0, 7);
+			StartQuickSort(arr, 7);
 			Assert::IsTrue(correct(arr, 7));
 			delete[] arr;
 		}
@@ -119,10 +119,10 @@ namespace TestsLab4
 			arr[1] = 2;
 			arr[2] = 6;
 			arr[3] = -8;
-			QuickSort(arr, 0, 4);
+			StartQuickSort(arr, 4);
 			Assert::IsTrue(correct(arr, 4));
 			delete[] arr;
-		} */
+		} 
 		//binary
 		TEST_METHOD(binary_find_first)
 		{
@@ -134,7 +134,7 @@ namespace TestsLab4
 			arr[4] = 48;
 			arr[5] = 56;
 			arr[6] = 200;
-			Assert::IsTrue(BinarySearch(arr, 7, -1));
+			Assert::AreEqual(0, BinarySearch(arr, 7, -1));
 			delete[] arr;
 		}
 		TEST_METHOD(binary_find_last)
@@ -147,7 +147,7 @@ namespace TestsLab4
 			arr[4] = 48;
 			arr[5] = 56;
 			arr[6] = 200;
-			Assert::IsTrue(BinarySearch(arr, 7, 200));
+			Assert::AreEqual(6, BinarySearch(arr, 7, 200));
 			delete[] arr; 
 		}
 		TEST_METHOD(binary_find_middle)
@@ -160,7 +160,7 @@ namespace TestsLab4
 			arr[4] = 48;
 			arr[5] = 56;
 			arr[6] = 200;
-			Assert::IsTrue(BinarySearch(arr, 7, 8));
+			Assert::AreEqual(3, BinarySearch(arr, 7, 8));
 			delete[] arr;
 		}
 		TEST_METHOD(binary_find_somewhere)
@@ -173,7 +173,7 @@ namespace TestsLab4
 			arr[4] = 48;
 			arr[5] = 56;
 			arr[6] = 200;
-			Assert::IsTrue(BinarySearch(arr, 7, 56));
+			Assert::AreEqual(5, BinarySearch(arr, 7, 56));
 			delete[] arr;
 		}
 		TEST_METHOD(binary_not_found)
@@ -186,12 +186,12 @@ namespace TestsLab4
 			arr[4] = 48;
 			arr[5] = 56;
 			arr[6] = 200;
-			Assert::IsFalse(BinarySearch(arr, 7, 99));
+			Assert::AreEqual(-1, BinarySearch(arr, 7, 99));
 			delete[] arr;
 		}
 		TEST_METHOD(correct_char_array_test_true)
 		{
-			//символы: ! ... от 0 до 9 ... верхний регистр ... нижний регист ... ~
+			
 			char* arr = new char[5];
 			arr[0] = '!';
 			arr[1] = '5';
@@ -203,9 +203,9 @@ namespace TestsLab4
 		}
 		TEST_METHOD(correct_char_array_test_false)
 		{
-			//символы: ! ... от 0 до 9 ... верхний регистр ... нижний регист ... ~
+			
 			char* arr = new char[5];
-			arr[4] = '!'; //поменяли ! и ~ местами из прошлого теста
+			arr[4] = '!'; 
 			arr[1] = '5';
 			arr[2] = 'T';
 			arr[3] = 's';
@@ -215,7 +215,7 @@ namespace TestsLab4
 		}
 		TEST_METHOD(correct_char_array_test)
 		{
-			//символы: ! ... от 0 до 9 ... верхний регистр ... нижний регист ... ~
+			
 			char* arr = new char[5];
 			arr[0] = '5';
 			arr[1] = 'u';

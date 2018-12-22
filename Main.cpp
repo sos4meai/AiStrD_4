@@ -20,7 +20,7 @@ int main()
 	{
 		for (int i = 0; i < array_size; i++)
 		{
-			CharArray[i] = rand() % 94 + 33; // îò ! äî ~
+			CharArray[i] = rand() % 222 + 33; // îò ! äî ~
 			if (array_size<=1000)
 			cout << CharArray[i] << " ";
 		}

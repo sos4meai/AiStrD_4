@@ -123,8 +123,8 @@ void bogoSort(int *arr, size_t array_size) {
 
 void CountingSort(char* Array, size_t array_size)
 {
-	size_t* SortingArray = new size_t[127];
-	for (int i = 0; i < 127; i++)
+	size_t* SortingArray = new size_t[255];
+	for (int i = 0; i < 255; i++)
 		SortingArray[i] = 0;
 	for (int i = 0; i < array_size; i++)
 	{
@@ -132,7 +132,7 @@ void CountingSort(char* Array, size_t array_size)
 		SortingArray[buffer]++;
 	}
 	int j = 0;
-	for (int i = 0; i < 127; i++)
+	for (int i = 0; i < 255; i++)
 	{
 		while (SortingArray[i] != 0)
 		{
